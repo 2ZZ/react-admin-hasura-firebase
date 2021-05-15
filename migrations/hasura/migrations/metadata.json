@@ -82,6 +82,81 @@
     {
       "table": {
         "schema": "public",
+        "name": "secrets"
+      },
+      "insert_permissions": [
+        {
+          "role": "user",
+          "permission": {
+            "check": {
+              "user_id": {
+                "_eq": "X-Hasura-User-Id"
+              }
+            },
+            "columns": [
+              "id",
+              "title",
+              "username",
+              "password",
+              "previous_password",
+              "api_key",
+              "notes",
+              "created_at",
+              "user_id"
+            ],
+            "backend_only": false
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "user",
+          "permission": {
+            "columns": [
+              "id",
+              "title",
+              "username",
+              "password",
+              "previous_password",
+              "api_key",
+              "notes",
+              "created_at",
+              "user_id"
+            ],
+            "filter": {
+              "user_id": {
+                "_eq": "X-Hasura-User-Id"
+              }
+            },
+            "allow_aggregations": true
+          }
+        }
+      ],
+      "update_permissions": [
+        {
+          "role": "user",
+          "permission": {
+            "columns": [
+              "title",
+              "username",
+              "password",
+              "previous_password",
+              "api_key",
+              "notes",
+              "created_at"
+            ],
+            "filter": {
+              "user_id": {
+                "_eq": "X-Hasura-User-Id"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "table": {
+        "schema": "public",
         "name": "users"
       },
       "select_permissions": [

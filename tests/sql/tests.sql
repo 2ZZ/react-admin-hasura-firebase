@@ -4,11 +4,12 @@
 BEGIN;
 
 -- How many tests are we running?
-SELECT plan( 6 );
+SELECT plan( 8 );
 
 -- Define the tests
 SELECT has_table( 'todos', 'todos table is present');
 SELECT has_table( 'users', 'users table is present');
+SELECT has_table( 'secrets', 'secrets table is present');
 SELECT has_extension( 'pg_catalog', 'plpgsql', 'Should have pgsql extension' );
 SELECT users_are(ARRAY[ 'postgres', 'hasurauser' ], 'Should have hasurauser as a user');
 SELECT table_privs_are(
@@ -17,6 +18,10 @@ SELECT table_privs_are(
 );
 SELECT table_privs_are(
     'public', 'users', 'hasurauser', ARRAY['SELECT', 'INSERT'],
+    'hasurauser should be able to select and insert on users'
+);
+SELECT table_privs_are(
+    'public', 'secrets', 'hasurauser', ARRAY['SELECT', 'INSERT'],
     'hasurauser should be able to select and insert on users'
 );
 -- Run the tests

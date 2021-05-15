@@ -1,6 +1,7 @@
 import React from "react";
 import { fetchUtils, Admin, Resource } from "react-admin";
 import { TodoCreate, TodoEdit, TodoList } from "./todos";
+import { SecretCreate, SecretEdit, SecretList } from "./secrets";
 import { UserList, UserShow } from "./users";
 import hasuraDataProvider from "ra-data-hasura";
 //import PostIcon from '@material-ui/icons/Book';
@@ -49,6 +50,12 @@ const App = () => {
       dataProvider={dataProvider}
       authProvider={fbAuthProvider}
     >
+      <Resource
+        name="secrets"
+        list={SecretList}
+        edit={SecretEdit}
+        create={SecretCreate}
+      />
       <Resource
         name="todos"
         list={TodoList}
