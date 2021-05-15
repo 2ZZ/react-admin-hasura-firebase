@@ -19,6 +19,8 @@ I recommend doing things in the below order:
 4. **Add SQL migrations**, by creating new [Flyway SQL files](https://github.com/dvasdekis/react-admin-hasura-firebase/tree/getting_started/migrations/sql) using the [Flyway migrations format](https://flywaydb.org/documentation/migrations#naming)
 5. **Add Hasura migrations**, by using the Hasura admin portal [running on `localhost:8081`](http://localhost:8081/) to create permissions for the new tables you've defined in your SQL migrations. Export the Hasura config so that your new Hasura config overwrites [`metadata.json`](https://github.com/dvasdekis/react-admin-hasura-firebase/blob/getting_started/migrations/hasura/migrations/metadata.json)
 6. **Edit the React-Admin Dashboard**, by editing the files under [`src`](https://github.com/dvasdekis/react-admin-hasura-firebase/tree/getting_started/src). The [React-Admin documentation](https://marmelab.com/react-admin/Readme.html) is quite terse - I recommend reading all of it each time you get stuck.
+7. Edit jwt secret varin docker-compose.yaml
+8. Add custom hasura claims to any user created manually in the firebase UI, see create-user-claims.js
 
 ### Understanding the permissions model
 

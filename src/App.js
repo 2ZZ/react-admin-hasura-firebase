@@ -9,13 +9,13 @@ import { FirebaseAuthProvider } from "react-admin-firebase";
 
 // Define Firebase auth provider
 const firebaseConfig = {
-  apiKey: "AIzaSyDL9pXM6XuKDKs-jcCuZuc263t6yAHk7xc",
-  authDomain: "react-admin-low-code.firebaseapp.com",
-  databaseURL: "https://react-admin-low-code.firebaseio.com",
-  projectId: "react-admin-low-code",
-  storageBucket: "react-admin-low-code.appspot.com",
-  messagingSenderId: "477028362078",
-  appId: "1:477028362078:web:9ab7803d11783132f6d1cf"
+  apiKey: "AIzaSyDWcx_KI23X4QxqDJuBdKecOgFKPyoQj4g",
+  authDomain: "libresecret-46dfc.firebaseapp.com",
+  databaseURL: "https://libresecret-46dfc-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "libresecret-46dfc",
+  storageBucket: "libresecret-46dfc.appspot.com",
+  messagingSenderId: "406811419819",
+  appId: "1:406811419819:web:b71e83d67b32d87ff743ee"
 };
 const firebaseOptions = {
   // Enable logging of react-admin-firebase

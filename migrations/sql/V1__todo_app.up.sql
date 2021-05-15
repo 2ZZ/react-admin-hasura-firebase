@@ -7,10 +7,10 @@ created_at timestamp with time zone not null default now(),
 last_seen timestamp with time zone
 );
 insert into public.users(id, email)
-SELECT cast('mlYsXk9rlHc37tYJXBCFMnzHEGF3' as varchar(100)) as id,
-       cast('test@example.com' as varchar(100)) as email UNION ALL
-SELECT cast('xVSkxIkpMFPReOrooBSuU3K6W4G2' as varchar(100)) as id,
-       cast('test2@example.com' as varchar(100)) as email;
+SELECT cast('ituqUpWUIAX3CN6cNivzNSsqlt82' as varchar(100)) as id,
+       cast('ian@i4n.co.uk' as varchar(100)) as email UNION ALL
+SELECT cast('aHxqHuaHDpPxWOIHVvIX3DH2ETL2' as varchar(100)) as id,
+       cast('test@i4n.co.uk' as varchar(100)) as email;
 
 
 CREATE TABLE public.todos (
@@ -22,14 +22,14 @@ created_at timestamp with time zone not null default now(),
 user_id text not null references public.users(id)
 );
 INSERT INTO public.todos(title, is_completed, is_public, user_id)
-SELECT 'todo by test@example.com' as title, false as is_completed, false as is_public,
-       'mlYsXk9rlHc37tYJXBCFMnzHEGF3' as user_id UNION ALL
-SELECT 'todo by test2@example.com' as title, false as is_completed, false as is_public,
-       'xVSkxIkpMFPReOrooBSuU3K6W4G2' as user_id UNION ALL
-SELECT 'public todo by test@example.com' as title, false as is_completed, true as is_public,
-       'mlYsXk9rlHc37tYJXBCFMnzHEGF3' as user_id UNION ALL
-SELECT 'public todo by test2@example.com' as title, false as is_completed, true as is_public,
-       'xVSkxIkpMFPReOrooBSuU3K6W4G2' as user_id;
+SELECT 'todo by ian@i4n.co.uk' as title, false as is_completed, false as is_public,
+       'ituqUpWUIAX3CN6cNivzNSsqlt82' as user_id UNION ALL
+SELECT 'todo by test@i4n.co.uk' as title, false as is_completed, false as is_public,
+       'aHxqHuaHDpPxWOIHVvIX3DH2ETL2' as user_id UNION ALL
+SELECT 'public todo by ian@i4n.co.uk' as title, false as is_completed, true as is_public,
+       'ituqUpWUIAX3CN6cNivzNSsqlt82' as user_id UNION ALL
+SELECT 'public todo by test@i4n.co.uk' as title, false as is_completed, true as is_public,
+       'aHxqHuaHDpPxWOIHVvIX3DH2ETL2' as user_id;
 
 
 /* SET POSTGRES PERMISISONS FOR TODOS APP */
