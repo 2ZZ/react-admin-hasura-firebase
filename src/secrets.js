@@ -5,6 +5,7 @@ import {
     Edit,
     Create,
     Datagrid,
+    Button,
     TextField,
     ReferenceField,
     DateField,
@@ -13,12 +14,13 @@ import {
     SimpleForm,
     TextInput,
     TopToolbar,
-    ListButton
+    ListButton,
+    PasswordInput
 } from 'react-admin';
 
 const SecretFilter = (props) => (
     <Filter {...props}>
-        <TextInput label="Search by Title" source="title" alwaysOn />
+        <TextInput label="Search" source="title@_ilike,notes@_ilike,username_@ilike" alwaysOn />
     </Filter>
 );
 
@@ -28,7 +30,7 @@ export const SecretList = props => (
             <TextField source="id" label="Secret Id" />
             <TextField source="title" />
             <TextField source="username" />
-            <DateField source="created_at" />
+            <DateField showTime source="created_at" />
         </Datagrid>
     </List>
 );
@@ -46,11 +48,10 @@ const SecretEditActions = ({ basePath, data }) => (
 export const SecretEdit = props => (
     <Edit title={<SecretTitle />} actions={<SecretEditActions />} {...props}>
         <SimpleForm>
-            <TextInput disabled source="id" label="Secret Id" />
             <TextInput source="title" />
-            <TextField source="username" />
-            <TextField source="password" />
-            <TextField source="notes" />
+            <TextInput source="username" />
+            <PasswordInput source="password" />
+            <TextInput multiline source="notes" />
         </SimpleForm>
     </Edit>
 );
@@ -59,10 +60,10 @@ export const SecretCreate = props => (
     <Create {...props}>
         <SimpleForm>
             <TextInput source="title" />
-            <TextField source="username" />
-            <TextField source="password" />
-            <TextField source="notes" />
-            <ReferenceInput source="user_id" reference="users">
+            <TextInput source="username" />
+            <PasswordInput source="password" />
+            <TextInput multiline source="notes" />
+            <ReferenceInput source="user_id" reference="users" defaultValue={localStorage.getItem('user.uid')}>
                 <SelectInput optionText="email" />
             </ReferenceInput>
         </SimpleForm>
