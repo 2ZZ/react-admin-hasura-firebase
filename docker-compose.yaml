@@ -55,14 +55,14 @@ services:
     command: metadata apply --endpoint "http://graphql-engine:${HASURA_INTERNAL_PORT}" --admin-secret ${HASURA_ADMIN_SECRET} --project migrations
     volumes:
       - ./migrations/hasura:/hasuracli/migrations
-  ra-webserver:
-    build:
-      context: ./
-      dockerfile: Dockerfile
-      target: prod
-    ports:
-      - 8080:80
-    restart: on-failure
+#  ra-webserver:
+#    build:
+#      context: ./
+#      dockerfile: Dockerfile
+#      target: prod
+#    ports:
+#      - 8080:80
+#    restart: on-failure
   selenium-tests:
     build:
       context: tests/selenium_chrome
